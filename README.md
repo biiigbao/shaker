@@ -1,2 +1,4 @@
-# randomize
-Generates random structure of hard spheres using Monte Carlo approch
+# shaker
+
+Simple-minded MATLAB script utilizing Metropolis Monte Carlo method to generate
+random structure of hard spheres.
