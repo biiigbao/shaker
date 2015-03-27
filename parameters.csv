@@ -1,0 +1,10 @@
+packing fraction, 0.6
+no. of cells in x, 3
+no. of cells in y, 3
+no. of cells in z, 3
+minimal acceptance, 0.25
+maximal acceptance, 0.35
+cycle limit, 1000
+update frequency, 100
+maximal displacement, 0.1
+cut-off radius, 4.0
