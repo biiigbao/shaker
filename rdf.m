@@ -2,7 +2,7 @@ function [counts, centers] = rdf(particles, box, res)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
-dmax = box(3) / 2;
+dmax = min(box) / 2;
 npart = length(particles);
 dists = -ones(1, npart * (npart - 1) / 2);
 idx = 1;
