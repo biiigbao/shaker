@@ -7,13 +7,11 @@ npart = length(particles);
 dists = -ones(1, npart * (npart - 1) / 2);
 idx = 1;
 for i = 1:npart-1
-    for j = i:npart
-        if i ~= j
-            dij = dist(particles(i).r, particles(j).r, box);
-            if dij < dmax;
-                dists(idx) = dij;
-                idx = idx + 1;
-            end
+    for j = i+1:npart
+        dij = dist(particles(i).r, particles(j).r, box);
+        if dij < dmax;
+            dists(idx) = dij;
+            idx = idx + 1;
         end
     end
 end
