@@ -1,18 +1,18 @@
-function findneigh(mols, box, rcut)
+function parts = findneigh(parts, box, rcut)
 %FINDNEIGH Populates particles' neigbors lists.
 
-nmols = length(mols);
-for i = 1:nmols;
+nparts = length(parts);
+for i = 1:nparts;
     k = 1;
-    nmax = length(mols(i).neighbors);
-    for j = 1:nmols
-        if j ~= i && dist(mols(i).r, mols(j).r, box) < rcut
+    nmax = length(parts(i).neighbors);
+    for j = 1:nparts
+        if j ~= i && dist(parts(i).r, parts(j).r, box) < rcut
             if k > nmax
-                mols(i).neighbors = [mols(i).neighbors, -ones(1, nmax)];
+                parts(i).neighbors = [parts(i).neighbors, -ones(1, nmax)];
                 k = nmax + 1;
-                nmax = length(mols(i).neighbors);
+                nmax = length(parts(i).neighbors);
             end
-            mols(i).neighbors(k) = j;
+            parts(i).neighbors(k) = j;
             k = k + 1;
         end
     end
