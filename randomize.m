@@ -3,8 +3,8 @@ required = {
     'packing fraction', ...
     'minimal acceptance', 'maximal acceptance', ...
     'no. of cells in x', 'no. of cells in y', 'no. of cells in z', ...
-    'maximal displacement', 'update frequency', 'cycle limit', ...
-    'cut-off radius'
+    'maximal displacement', 'adjust frequency', 'update frequency', ...
+    'dump frequency', 'cycle limit', 'cut-off radius'
 };
 params = readparams('parameters.csv');
 available = keys(params);
@@ -26,6 +26,8 @@ lattice = makelatt(geometry, phi);
 
 % Randomize positions of the sphers.
 conditions.maxcycles = params('cycle limit');
+conditions.nadjust = params('adjust frequency');
+conditions.ndump = params('dump frequency');
 conditions.nupdate = params('update frequency');
 conditions.dmax = params('maximal displacement');
 conditions.acceptmin = params('minimal acceptance');
