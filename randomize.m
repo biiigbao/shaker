@@ -19,8 +19,8 @@ end
 
 % Generate fcc lattice of spheres with a given packing fraction.
 geometry.nx = params('no. of cells in x');
-geometry.ny = params('no. of cells in z');
-geometry.nz = params('no. of cells in y');
+geometry.ny = params('no. of cells in y');
+geometry.nz = params('no. of cells in z');
 phi = params('packing fraction');
 lattice = makelatt(geometry, phi);
 
