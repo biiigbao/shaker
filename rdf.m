@@ -1,4 +1,4 @@
-function [centers, counts] = rdf(particles, box, res)
+function [counts, centers] = rdf(particles, box, res)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -18,10 +18,10 @@ for i = 1:npart-1
     end
 end
 
-dr = dmax / res;
-bins = (0:res-1) * dr + 0.5 * dr; 
-dists = dists(dists > 0);
-[counts, centers] = hist(dists, bins);
+dr = (dmax - 2) / res;
+bins = 2 + (0:res-1) * dr + 0.5 * dr;
+dists = dists(dists > -1);
+[counts, centers] = hist([dists, dists], bins);
 counts = counts / (sum(counts) * dr);
 end
 

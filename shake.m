@@ -64,7 +64,6 @@ end
 [ratio, dmax]
 
 res = 100;
-rdfcenters = zeros(1, res);
 rdfvalues = zeros(1, res);
 ndump = 0;
 
@@ -85,7 +84,7 @@ for i = 1:parameters.maxcycles
     
     % Collect data for RDF.
     if mod(i, parameters.ndump) == 0
-        [centers, values] = rdf(particles, box, res);
+        [values, centers] = rdf(particles, box, res);
         rdfvalues = rdfvalues + values;
         ndump = ndump + 1;
     end   
