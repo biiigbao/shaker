@@ -4,7 +4,7 @@ required = {
     'minimal acceptance', 'maximal acceptance', ...
     'no. of cells in x', 'no. of cells in y', 'no. of cells in z', ...
     'maximal displacement', 'adjust frequency', 'update frequency', ...
-    'dump frequency', 'cycle limit', 'cut-off radius'
+    'dump frequency', 'cycle limit', 'cutoff radius'
 };
 params = readparams('parameters.csv');
 available = keys(params);
@@ -32,8 +32,11 @@ conditions.nupdate = params('update frequency');
 conditions.dmax = params('maximal displacement');
 conditions.acceptmin = params('minimal acceptance');
 conditions.acceptmax = params('maximal acceptance');
-conditions.rcut = params('cut-off radius');
+conditions.rcut = params('cutoff radius');
+
+tic
 positions = shake(lattice, conditions);
+toc
 
 % Dump the final configuration to an external file.
 tab = positions';
