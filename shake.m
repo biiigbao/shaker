@@ -91,7 +91,7 @@ for i = 1:parameters.maxcycles
 end
 
 rdfcenters = centers;
-rdfvalues = rdfvalues / ndump;
+rdfvalues = rdfvalues / (npart * ndump);
 tab = [rdfcenters', rdfvalues'];
 save('rdf.dat', 'tab', '-ascii');
 
