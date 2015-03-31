@@ -16,6 +16,7 @@ flag = 0;
 % Check the distance between the particle and the closer electrode using
 % image approach, i.e. by calulating the distance between the particle and 
 % its "reflection" on the other side of an electrode.
+%{
 rimg = rmol;
 if rmol(3) > 0
     rimg(3) = box(3) - rmol(3);
@@ -26,6 +27,7 @@ if norm(rimg - rmol) < dmin
     flag = 1;
     return
 end
+%}
 
 % Check if there are any overalaps with neighbors.
 for i = 1:length(neighbors)
