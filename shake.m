@@ -120,7 +120,8 @@ for i = 1:length(particles)
     p.r = p.r + maxdisp * (1.0 - 2.0 * rand(3, 1));
         
     % Apply periodic boundary conditions along x, y (but NOT z) directions.
-    p.r = p.r - [box(1); box(2); 0.0] .* fix(2.0 * p.r ./ box);
+    %p.r = p.r - [box(1); box(2); 0.0] .* fix(2.0 * p.r ./ box);
+    p.r = p.r - box .* fix(2.0 * p.r ./ box);
         
     % Accept new position if it doesn't lead to overlaps with its
     % neighbors and walls.

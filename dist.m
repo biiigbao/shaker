@@ -4,6 +4,7 @@ function d = dist(ri, rj, box)
 %   conforms minimum image convention.
 
 rij = rj - ri;
-rij = rij - [box(1); box(2); 0.0] .* fix(2.0 * rij ./ box);
+%rij = rij - [box(1); box(2); 0.0] .* fix(2.0 * rij ./ box);
+rij = rij - box .* fix(2.0 * rij ./ box);
 d = norm(rij);
 end
